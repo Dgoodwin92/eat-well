@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eat Well</title>
+</head>
+<body>
+    {% for recipes in recipes %}
+        {{ recipes.recipe_name }}<br>
+        {{ recipes.ingredient_list }}<br>
+        {{ recipes.recipe_method }}<br>
+        {{ recipes.serving_size }}<br>
+        {{ recipes.total_time }}<br>
+    {% endfor %}
+</body>
+</html>
