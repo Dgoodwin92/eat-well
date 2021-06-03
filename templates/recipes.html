@@ -9,10 +9,13 @@
 <body>
     {% for recipes in recipes %}
         {{ recipes.recipe_name }}<br>
+        {{ recipes.recipe_description }}<br>
         {{ recipes.ingredient_list }}<br>
         {{ recipes.recipe_method }}<br>
         {{ recipes.serving_size }}<br>
         {{ recipes.total_time }}<br>
+        {{ recipes.image_upload_url }}<br>
+
     {% endfor %}
 </body>
 </html>
