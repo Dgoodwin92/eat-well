@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&family=Handlee&display=swap');
+
 body {
-    background-color: blue;
+    height: 100%;
+}
+
+/* Navbar */
+.brand-logo {
+    font-family: 'Handlee', sans-serif;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* Hero Image */
+.hero-image {
+    background-image: url(../images/hero-image/hero-image1.jpg);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
