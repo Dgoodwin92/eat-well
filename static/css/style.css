@@ -8,6 +8,11 @@ body {
     font-family: 'Handlee', sans-serif;
 }
 
+.flashes h4 {
+    line-height: 2;
+    font-family: 'Handlee' sans-serif;
+}
+
 /* Navbar */
 .brand-logo {
     font-family: 'Handlee', sans-serif;
