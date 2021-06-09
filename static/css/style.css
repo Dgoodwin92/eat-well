@@ -38,3 +38,12 @@ body {
     transform: translate(-50%, -50%);
     color: white;
   }
+/* Profile Page */
+#user-card-panel {
+    background-color: #cfd8dc;
+    box-shadow: none;
+}
+
+.user-title {
+    font-family: 'Handlee', sans-serif;
+}
