@@ -2,13 +2,13 @@
 {% block content %}
 
 <div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('login') }}">
-        <h5 class="center-align">Login</h5>
+    <form class="col s12" method="POST" action="{{ url_for('register') }}">
+        <h5 class="center-align">Register</h5>
         <div class="card-panel">
             <!--Username-->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-cog prefix blue-grey-text text-darken-1"></i>
+                    <i class="fas fa-user-plus prefix blue-grey-text text-darken-1"></i>
                     <input id="username" name="username" type="text" class="validate">
                     <label for="username">Username</label>
                 </div>
@@ -24,7 +24,7 @@
             <!--Register Button-->
             <div class="row">
                 <button type="submit" class="col s12 btn-large blue-grey darken-1">
-                    Login <i class="fas fa-sign-in-alt"></i>
+                    Register <i class="fas fa-sign-in-alt"></i>
                 </button>
             </div>
         </div>
@@ -34,11 +34,10 @@
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Want to Eat Well?
-            <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Register Account</a>
+            Already Eating Well with us?
+            <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log In</a>
         </p>
     </div>
 </div>
-
 
 {% endblock %}

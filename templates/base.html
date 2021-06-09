@@ -26,7 +26,8 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-                    <li><a href="{{ url_for('register') }}">Login/Register</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
                     <li><a href="collapsible.html">Profile</a></li>
                     <li><a href="collapsible.html">New Recipe</a></li>
                     <li><a href="collapsible.html">Logout</a></li>
@@ -36,9 +37,10 @@
         <!-- Mobile Side Navbar -->
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align 4 brand-logo">Eat Well</h4></li>
-            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-            <li><a href="">Recipes</a></li>
-            <li><a href="{{ url_for('register') }}">Login/Register</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="collapsible.html">Profile</a></li>
             <li><a href="collapsible.html">New Recipe</a></li>
             <li><a href="collapsible.html">Logout</a></li>
