@@ -1,29 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="hero-image">
-</div>
-<h2 class="page-heading center-align">Recipes</h2>
+<h1 class="page-header center-align">EAT WELL</h1>
 
+
+<h3 class="page-heading center-align">Recipes</h3>
 <section id="recipe-page">
     {% for recipe in recipes %}
     <div class="row">
-        <div class="col s12 m4">
+        <div class="col s6 m4">
             <div class="card">
                 <div class="card-image">
-                    <img class="materialboxed" src="/static/images/hero-image/hero-image1.jpg">
-                    <span class="card-title">{{ recipe.recipe_name }}</span>
+                    <img class="materialboxed" src="/static/images/recipes/An Eat Well.png">
                 </div>
+                <h5 class="card-title center-align">{{ recipe.recipe_name }}</h5>
                 <div class="card-content">
                     {{ recipe.recipe_description }}<br>
                     <p>Serves: {{ recipe.serving_size }}</p>
                     <p>Total Time: {{ recipe.total_time }}</p>
                     <p><strong>{{ recipe.category_name }}</strong></p>
+                    {% if session.user|lower == recipe.created_by|lower %}
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                        class="btn-floating tooltipped halfway-fab waves-effect waves-light green left"
+                        data-position="bottom" data-tooltip="Edit"><i class="fas fa-edit"></i></a>
+                    <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red center"
+                        data-position="bottom" data-tooltip="Delete"><i class="fas fa-trash"></i></a>
+                    {% endif %}
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
 </section>
 {% endblock %}
-<!--{{ recipes.ingredient_list }}<br>
-{{ recipes.recipe_method }}<br>-->

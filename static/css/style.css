@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Vidaloka&family=Handlee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Handlee&display=swap');
 
 body {
     height: 100%;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
 }
-
+.page-header {
+    font-family: 'Lato', sans-serif;
+}
 .page-heading {
     font-family: 'Handlee', sans-serif;
 }
@@ -20,24 +24,14 @@ body {
     padding: 5px;
 }
 
-/* Hero Image */
-.hero-image {
-    background-image: url("/static/images/hero-image/hero-image1.jpg");
-    height: 50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+/* Recipe Page */
+.card-title {
+    font-family: 'Handlee' sans-serif;
+    color: black;
 }
 
-.hero-text {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-  }
+
+
 /* Profile Page */
 #user-card-panel {
     background-color: #cfd8dc;
