@@ -33,6 +33,12 @@ def search():
     return render_template("recipes.html", recipes=recipes)
 
 
+#@app.route("/recipes/<recipe_name>")
+#def recipe(recipe_name):
+    #recipe_name = mongo.db.recipes.find_one({"url": recipe_name})
+        #return render_template("detail-recipe.html",
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -86,15 +92,30 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET","POST"])
-def profile(username):
-    # grab the session user's user from database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
 
-    if session["user"]:
-        return render_template("profile.html", username=username)
-    
+@app.route("/login/<username>", methods=["GET", "POST"])
+def profile(username):
+    """ Render custom profile view based upon logged in session user """
+    # grab the session user's username from the db
+    user = mongo.db.users.find_one(
+        {"username": username}
+    )
+    if user_logged_in():
+
+        if user['username'] == session['user']:
+
+            if user['role'] == "admin":
+                # If user role = admin, return all recipes
+                recipes = list(mongo.db.recipes.find().sort("created_on", -1))
+            else:
+                # Retrieve recipes from db added by user
+                recipes = list(mongo.db.recipes.find(
+                    {"created_by": username}).sort("created_on", -1))
+            return render_template(
+                    "profile.html", username=username,
+                    recipes=recipes, favorites=favorites)
+        return redirect(url_for("get_recipes"))
+
     return redirect(url_for("login"))
 
 
@@ -113,8 +134,8 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "recipe_description": request.form.get("recipe_description"),
-            "ingredient_list": request.form.get("ingredient_list"),
-            "recipe_method": request.form.get("recipe_method"),
+            "ingredient_list": request.form.getlist("ingredient_list"),
+            "recipe_method": request.form.getlist("recipe_method"),
             "serving_size": request.form.get("serving_size"),
             "total_time": request.form.get("total_time"),
             "created_by": session["user"]
@@ -134,13 +155,15 @@ def edit_recipe(recipe_id):
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "recipe_description": request.form.get("recipe_description"),
-            "ingredient_list": request.form.get("ingredient_list"),
-            "recipe_method": request.form.get("recipe_method"),
+            "ingredient_list": request.form.getlist("ingredient_list"),
+            "recipe_method": request.form.getlist("recipe_method"),
             "serving_size": request.form.get("serving_size"),
-            "total_time":request.form.get("total_time")
+            "total_time":request.form.get("total_time"),
+            "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Succesfully Updated")
+        return redirect(url_for("get_recipes"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
