@@ -3,6 +3,7 @@ $(document).ready(function () {
   $('.materialboxed').materialbox();
   $('select').formSelect();
   $('.tooltipped').tooltip();
+});
   validateMaterializeSelect();
   function validateMaterializeSelect() {
       let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -30,7 +31,7 @@ $(document).ready(function () {
           }
       });
   }
-});
+
 
 
 $('#ingredient_list .add-ingredient-list-item').click(function (event) {
