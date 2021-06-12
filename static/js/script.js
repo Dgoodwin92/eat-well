@@ -3,6 +3,11 @@ $(document).ready(function () {
   $('.materialboxed').materialbox();
   $('select').formSelect();
   $('.tooltipped').tooltip();
+  $('.tabs').tabs({
+    swipeable: true,
+    duration: 300,
+    onShow: resizeTab
+});
 });
   validateMaterializeSelect();
   function validateMaterializeSelect() {
