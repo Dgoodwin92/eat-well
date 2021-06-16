@@ -2,7 +2,7 @@
 {% block content %}
 <h3 class="center-align page-heading">Add Recipe page</h3>
 
-
+<div class="container">
 <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
         <!--Recipe Name-->
@@ -94,7 +94,8 @@
                     Add Recipe <i class="far fa-plus-square"></i></button>
             </div>
         </div>
+    </form>
 </div>
-</form>
+
 </div>
 {% endblock %}

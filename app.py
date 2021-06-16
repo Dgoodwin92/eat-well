@@ -28,21 +28,13 @@ def get_recipes():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    mongo.db.recipes.create_index([("recipe_name", "text"), ("recipe_description", "text")])
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
-
-
-#@app.route("/recipes/<recipe_name>")
-#def recipe(recipe_name):
-    #recipe_name = mongo.db.recipes.find_one({"url": recipe_name})
-        #return render_template("detail-recipe.html",
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -93,30 +85,12 @@ def login():
 
 
 
-@app.route("/login/<username>", methods=["GET", "POST"])
+@app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    """ Render custom profile view based upon logged in session user """
-    # grab the session user's username from the db
-    user = mongo.db.users.find_one(
-        {"username": username}
-    )
-    if user_logged_in():
-
-        if user['username'] == session['user']:
-
-            if user['role'] == "admin":
-                # If user role = admin, return all recipes
-                recipes = list(mongo.db.recipes.find().sort("created_on", -1))
-            else:
-                # Retrieve recipes from db added by user
-                recipes = list(mongo.db.recipes.find(
-                    {"created_by": username}).sort("created_on", -1))
-            return render_template(
-                    "profile.html", username=username,
-                    recipes=recipes, favorites=favorites)
-        return redirect(url_for("get_recipes"))
-
-    return redirect(url_for("login"))
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 @app.route("/logout")
