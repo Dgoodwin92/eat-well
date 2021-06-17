@@ -28,8 +28,9 @@ def get_recipes():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("recipes.html", recipes=recipes)
+    # recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    recipe_by_ingredients = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipe_by_ingredients)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -90,7 +91,12 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        recipes = list(mongo.db.recipes.find({"created_by": username}))
+        return render_template("profile.html", recipes=recipes, username=username)
+
+    return redirect(url_for("login"))
 
 
 @app.route("/logout")

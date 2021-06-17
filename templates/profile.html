@@ -1,60 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-        <div class="card-panel" id="user-card-panel">
-            <h3 class="center-align user-title">
-                {{ username }}'s Profile
-            </h3>
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+                <h3 class="center-align user-title">
+                    {{ username }}'s Profile
+                </h3>
         </div>
     </div>
-</div>
-<section id="recipe-page">
-    <!-- User uploaded Recipes -->
-    <div id="your-recipes">
-        <div class="row">
-            <h3 class="page-heading center-align">Your Recipes</h3>
-        </div>
-        
-        {% for recipe in recipes %}
-        
-        <div class="row">
-            <div class="col s6 m4">
-                {% if session.user|lower == recipe.created_by|lower %}
-                <div class="card">
-                    <div class="card-image">
-                        <img class="materialboxed" src="/static/images/recipes/An Eat Well.png">
-                    </div>
-                    <h5 class="card-title center-align">{{ recipe.recipe_name }}</h5>
-                    <div class="card-content">
-                        {{ recipe.recipe_description }}<br>
-                        <p>Serves: {{ recipe.serving_size }}</p>
-                        <p>Total Time: {{ recipe.total_time }}</p>
-                        <p><strong>{{ recipe.category_name }}</strong></p>
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
-                            class="btn-floating tooltipped halfway-fab waves-effect waves-light green left"
-                            data-position="bottom" data-tooltip="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                            class="btn-floating tooltipped halfway-fab waves-effect waves-light red center"
-                            data-position="bottom" data-tooltip="Delete"><i class="fas fa-trash"></i></a>
+    <section id="recipe-page">
+        <!-- User uploaded Recipes -->
+        <div id="your-recipes">
+            <div class="row">
+                <h3 class="page-heading center-align">Your Recipes</h3>
+            </div>
+            <div class="row">
+                {% if recipe|length == 0 %}
+                {% for recipe in recipes %}
+                <div class="col s6 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="materialboxed" src="/static/images/recipes/An Eat Well.png">
+                        </div>
+                        <h5 class="card-title center-align">{{ recipe.recipe_name }}</h5>
+                        <div class="card-content">
+                            {{ recipe.recipe_description }}<br>
+                            <p>Serves: {{ recipe.serving_size }}</p>
+                            <p>Total Time: {{ recipe.total_time }}</p>
+                            <p><strong>{{ recipe.category_name }}</strong></p>
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                                class="btn-floating tooltipped halfway-fab waves-effect waves-light green left"
+                                data-position="bottom" data-tooltip="Edit"><i class="fas fa-edit"></i></a>
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                                class="btn-floating tooltipped halfway-fab waves-effect waves-light red center"
+                                data-position="bottom" data-tooltip="Delete"><i class="fas fa-trash"></i></a>
+                        </div>
                     </div>
                 </div>
+                {% else %}
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <h5 class="red">No Recipes Submitted</h5>
+                    </div>
+                </div>
+                {% endfor %}
                 {% endif %}
             </div>
         </div>
-       
-        {% else %}
-        <div class="row">
-            <div class="col s12 center-align">
-                <h5 class="red">No Recipes Submitted</h5>
-            </div>
-        </div>
-        {% endfor %}
-        
-
-
-    </div>
-    </div>
+</div>
 </section>
 {% endblock %}
