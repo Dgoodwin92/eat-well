@@ -1,4 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div class="home-image">
+    <div class="hero-content">
+        <h1 class="page-header center-align">EAT WELL</h1>
+        <div class="card home-card">
+        <p class="home-content">Welcome to EAT WELL a recipe hosting site,<br>
+        the place to find and share great recipes.<br>
+        Simply login if already a user or register to add new recipes.
+    </p>
+        <a href="{{ url_for('login') }}" class="blue-grey waves-effect waves-red btn home-link">Log In</a>
+        <a href="{{ url_for('register') }}" class="blue-grey waves-effect waves-red btn home-link">Register</a>
+    </div>
+    </div>
+</div>
 {% endblock %}

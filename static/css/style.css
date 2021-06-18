@@ -6,6 +6,16 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/* Hero Images / Home Image */
+.home-image{
+    background-image: url(/static/images/hero-image/hero-image1.jpg);
+    height: 90vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .hero-image{
     background-image: url(/static/images/hero-image/hero-image1.jpg);
     height: 60vh;
@@ -22,6 +32,22 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* Home Content */
+.home-content {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.home-card {
+    background-color: white;
+}
+
+.home-link{
+    margin-bottom: 5px;
+}
+
 
 .page-header {
     font-family: 'Lato', sans-serif;
