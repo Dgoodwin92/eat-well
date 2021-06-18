@@ -34,7 +34,6 @@ def get_recipes():
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-
     return render_template("recipes.html", recipes=recipes)
 
 
@@ -88,7 +87,6 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
