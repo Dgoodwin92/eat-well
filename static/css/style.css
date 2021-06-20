@@ -163,3 +163,32 @@ h5 a {
 .social-icon {
     margin: 4px;
 }
+
+/* Phone Screen Size */
+@media only screen and (max-width: 600px) {
+
+    /* Home Page */
+    .page-header {
+        font-size: 50px;
+    }
+
+    .home-content {
+        font-size: 10px;
+    }
+
+    .home-link {
+        text-align: center;
+        height: 25px;
+        font-size: 10px;
+    }
+
+    /* Recipe Page */
+    .search-button {
+        width: 60px;
+        font-size: 10px;
+    }
+    
+    .card-recipes {
+        height: 62vh;
+    }
+}

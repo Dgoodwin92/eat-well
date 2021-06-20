@@ -5,19 +5,17 @@
 
 <h2 class="page-header center-align">RECIPES</h2>
 <div class="container">
-    <div class="row card-panel">
+    <div class="row card-panel search-card">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
+                <div class="input-field col s12">
                     <i class="fas fa-search prefix"></i>
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                    <label for="query">Search Recipes</label>
+                    <label for="query" class="search-label">Search Recipes</label>
                 </div>
-                <div class="col s12 m6">
+                <div class="col m6">
                     <a href="{{ url_for('get_recipes') }}" class="red btn search-button">Reset</a>
-                    <button type="submit" class="btn green search-button">
-                        <i class="fas fa-search left"></i> Search
-                    </button>
+                    <button type="submit" class="btn green search-button">Search</button>
                 </div>
             </div>
         </form>
