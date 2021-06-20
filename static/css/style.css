@@ -85,14 +85,9 @@ p {
 }
 
 .card-recipes {
-    height: 65vh;
+    height: 52vh;
 }
 
-@media only screen and (max-width: 600px) {
-    .card-recipes {
-        height: 71vh;
-    }
-}
 
 h5 a {
     color: black;
@@ -116,10 +111,8 @@ h5 a {
   transform: translate(-50%, -50%);
 }
 
-@media only screen and (max-width: 600px) {
 #profile-cards {
-    height: 56vh;
-}
+    height: 50vh;
 }
 
 #user-card-panel {
@@ -168,6 +161,10 @@ h5 a {
 @media only screen and (max-width: 600px) {
 
     /* Home Page */
+    .home-card {
+        height: 170px;
+    }
+
     .page-header {
         font-size: 50px;
     }
@@ -189,6 +186,41 @@ h5 a {
     }
     
     .card-recipes {
-        height: 62vh;
+        height: 80vh;
     }
+
+    /* Profile Page */
+    #profile-cards {
+        height: 75vh;
+    }
+
+    /* Add Recipe Page */
+    .page-heading {
+        font-size: 30px;
+    }
+
+    /* Edit Recipe Page */
+    .recipe-button {
+        margin: 3px;
+    }
+}
+
+/* Tablet Screens */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Recipe page */
+    .card-recipes {
+        height: 40vh;
+    }
+
+    /* Edit Recipe Page */
+    .recipe-button {
+        margin: 3px;
+    }
+
+    /* Recipe Page */
+    .card-recipes {
+        height: 42vh;
+    }
+
+    
 }
