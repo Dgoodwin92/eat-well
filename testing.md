@@ -6,6 +6,9 @@
     * [JavaScript](#javascript)
     * [Python](#python)
 - [**Testing User Stories**](#testing-user-stories)
+- [**Issues I Faced**](#issues-i-faced)
+- [**Issues Still to Fix**](#issues-still-to-fix)
+
 
 ## **Validation**
 
@@ -69,7 +72,7 @@ I validated my Python code  via the [Pylint Validation Tool](https://www.pylint.
 * I want to be able to add new recipes and content to improve user experience.
     - Admin is able to just like users, add new content to enhance user experience.
 
-## Issues I Faced
+## **Issues I Faced**
 #### Searching the database
 For a while I was only able to return matches on the search which matched within my title or description.
     To help me with this issue I first went to tutor support and we tried many things to correct this issue, but to no luck.
@@ -90,7 +93,7 @@ I really wanted to have the user be able to upload an image with their recipes, 
 #### Recipe Card Sizes
 I have been having a lot of issues getting the recipe cards to be the correct sizes on all devices, but I finally feel like I have managed to get them to look good on most devices.
 
-## Issues Still to Fix
+## **Issues Still to Fix**
 #### Admin
 Admin to have the power to edit or delete any users content. 
 
