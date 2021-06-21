@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- Username Profile Title -->
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="profile-hero">
@@ -10,7 +11,7 @@
     </div>
 </div>
 <div class="container">
-    
+
     <section id="recipe-page">
         <!-- User uploaded Recipes -->
         <div id="your-recipes">
@@ -20,13 +21,14 @@
             <div class="row">
                 {% if recipe|length == 0 %}
                 {% for recipe in recipes %}
+                <!-- Recipe User created Cards -->
                 <div class="col s12 m4">
                     <div class="card card-recipes" id="profile-cards">
                         <div class="card-image">
                             <img class="materialboxed" src="/static/images/recipes/An Eat Well.png">
                         </div>
                         <h5 class="card-title center-align"><a class="modal-trigger" href="#{{ recipe._id }}">{{
-                            recipe.recipe_name }}</a></h5>
+                                recipe.recipe_name }}</a></h5>
                         <div class="card-content">
                             <p>Serves: {{ recipe.serving_size }}</p>
                             <p>Total Time: {{ recipe.total_time }}</p>
@@ -40,9 +42,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- Recipe Modals -->
                 <div id="{{ recipe._id }}" class="modal">
                     <div class="modal-content">
                         <div class="row">
+                            <!-- Recipe Name, Total Time and Serving Size-->
                             <div class="col s7">
                                 <h4>{{ recipe.recipe_name }}</h4>
                                 <p class="modal-info">Serves: {{ recipe.serving_size }} <i
@@ -56,10 +60,12 @@
                             </div>
                         </div>
                         <div class="row">
+                            <!-- Recipe Description -->
                             <div class="col s12">
                                 <p class="center-align modal-description">{{ recipe.recipe_description }}</p>
                             </div>
                         </div>
+                        <!-- Ingredients and Method -->
                         <div class="row">
                             <div class="col s6">
                                 <h6><em>Ingredient List</em></h6>
@@ -86,6 +92,7 @@
                     </div>
                 </div>
                 {% else %}
+                <!-- No Recipe Created Banner -->
                 <div class="row">
                     <div class="col s12 center-align">
                         <h5 class="red">No Recipes Submitted</h5>
