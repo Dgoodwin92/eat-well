@@ -33,8 +33,8 @@ def get_recipes():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    """ Query function to submit to database and return 
-        desired search items """
+    """ Query function to submit to database and return
+    desired search items """
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
@@ -74,11 +74,11 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for("profile", username=session["user"]))
+            if check_password_hash(existing_user["password"],
+                                   request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -100,7 +100,8 @@ def profile(username):
 
     if session["user"]:
         recipes = list(mongo.db.recipes.find({"created_by": username}))
-        return render_template("profile.html", recipes=recipes, username=username)
+        return render_template("profile.html",
+                               recipes=recipes, username=username)
 
     return redirect(url_for("login"))
 
@@ -146,7 +147,7 @@ def edit_recipe(recipe_id):
             "ingredient_list": request.form.getlist("ingredient_list"),
             "recipe_method": request.form.getlist("recipe_method"),
             "serving_size": request.form.get("serving_size"),
-            "total_time":request.form.get("total_time"),
+            "total_time": request.form.get("total_time"),
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
@@ -155,7 +156,8 @@ def edit_recipe(recipe_id):
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit-recipe.html", recipe=recipe, categories=categories)
+    return render_template("edit-recipe.html",
+                           recipe=recipe, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
