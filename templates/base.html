@@ -83,11 +83,9 @@
                             <li class="col s3"><a href="{{ url_for('home') }}">Home</a></li>
                             <li class="col s3"><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
                             {% if session.user %}
-                            
                                 <li class="col s2"><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                                 <li class="col s2"><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
                                 <li class="col s2"><a href="{{ url_for('logout') }}">Logout</a></li>
-                            
                             {% else %}
                             <li class="col s3"><a href="{{ url_for('login') }}">Login</a></li>
                             <li class="col s3"><a href="{{ url_for('register') }}">Register</a></li>
