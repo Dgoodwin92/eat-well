@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col s6">
                             <h6><em>Ingredient List</em></h6>
-                            <ul class="collection" id="ingredient_list">
+                            <ul class="collection">
                                 {% for ingredient in recipe.ingredient_list %}
                                 <li class="collection-item">{{ ingredient }}</li>
                                 {% endfor %}
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col s6">
                             <h6><em>Method</em></h6>
-                            <ol class="collection" id="recipe_method">
+                            <ol class="collection">
                                 {% for method in recipe.recipe_method %}
                                 <li class="collection-item">{{ method }}</li>
                                 {% endfor %}

@@ -13,7 +13,7 @@
 ## **Validation**
 
 ### W3 HTML
-To validate my HTML, I used [W3 Validation Service](https://validator.w3.org/)
+To validate my HTML, I used [W3 Validation Service](https://validator.w3.org/). On my first attempt at submitting this there were errors within my HTML, I am pleased to say that these errors have been corrected.
 
 * base.html & home.html
 ![HTML](static/images/testing/html-valid.png)
@@ -23,7 +23,7 @@ To validate my HTML, I used [W3 Validation Service](https://validator.w3.org/)
 
 * recipes.html
 ![HTML](static/images/testing/recipes-page.png)
-The warnings are for semantics and lack of certain headers, I am happy with the headings that I do have so did not feel any changes were needed.
+The warnings are for semantics and lack of certain headers. Errors for multiple id's have been corrected.
 
 * edit-recipe.html
 ![HTML](static/images/testing/edit-page.png)
@@ -37,7 +37,7 @@ The warnings are for semantics and lack of certain headers, I am happy with the 
 
 * profile.html
 ![HTML](static/images/testing/profile-valid.png)
-The warnings are for semantics and lack of certain headers, I am happy with the headings that I do have so did not feel any changes were needed.
+The warnings are for semantics and lack of certain headers. Errors for multiple id's have been corrected.
 
 ### W3 CSS
 I validated the CSS with the [W3 Validation Service](https://jigsaw.w3.org/css-validator/) and it found no errors.
@@ -48,8 +48,7 @@ I validated the JavaScript with [JSHint](https://jshint.com/).
 ![JavaScript](static/images/testing/javascript-valid.png)
 
 ### Python
-I validated my Python code  via the [Pylint Validation Tool](https://www.pylint.org/) There are some issues, with the python code but overall I am happy with the score of 8.73/10.
-![Python](static/images/testing/pylint-valid)
+I re-validated my Python code  via the website [Pep8 Online Validator](http://pep8online.com/) and no issues/errors came back.
 
 ## **Testing User Stories**
 * As a user I would like to be looking at a clean and responsive webpage.
